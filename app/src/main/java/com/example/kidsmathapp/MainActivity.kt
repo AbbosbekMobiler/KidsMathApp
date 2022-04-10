@@ -80,10 +80,13 @@ class MainActivity : AppCompatActivity() {
         val dialog = AlertDialog.Builder(this)
         dialog.setCancelable(false)
         dialog.setView(winDialog)
-        FinalScoreTextView!!.text = "$points/$totalQuestion"
-        btnplayAgain.setOnClickListener { playAgain(it) }
-        btnBack.setOnClickListener { onBackPressed() }
         val showDialog = dialog.create()
+        FinalScoreTextView!!.text = "$points/$totalQuestion"
+        btnplayAgain.setOnClickListener {
+            playAgain(it)
+            showDialog.hide()
+        }
+        btnBack.setOnClickListener { onBackPressed() }
         showDialog.show()
     }
 
